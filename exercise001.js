@@ -11,9 +11,14 @@ const promise = new Promise((resolve, reject) => {
 	}
 });
 
-promise.then((data) => {
-	console.log(`Yay! Promise resolved with response: ${data}`);
-}).catch((error) => {
-	console.log(`Boo. Promise rejected with response: ${error}`);
 
-});
+const getPromiseResponse = async () => {
+	try {
+		const result = await promise;
+		console.log(`Yay! Promise resolved with response: ${result}`);
+	} catch (error) {
+		console.error(`Boo. Promise rejected with response: ${error}`);
+	}
+
+}
+getPromiseResponse();
